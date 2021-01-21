@@ -21,11 +21,13 @@ const config: Configuration & any = {
             loader: 'babel-loader', options: {
               presets: [
                 ['@babel/preset-env', {
-                  targets: {
-                    "ie": 11
-                  }
-                }],
-                '@babel/preset-react'
+                  useBuiltIns: 'usage',
+                  corejs: {
+                    version: '3.8', // works for "useBuiltIns: usage", just specify a.b, not a.b.c
+                    proposals: true
+                  },
+                  targets: "defaults, ie 11"
+                }]
               ]
             }
           },

@@ -1,7 +1,7 @@
-TypeScript Webpack Babel "react-refresh" Demo
+TypeScript Webpack React Babel Es5 IE11 with CoreJS Demo
 ===========================================================
 
-不使用ts-loader，只使用babel自己的preset-typescript，可以很容易做到react-refresh
+如何让React可以正确的在IE11上运行
 
 ```
 npm install
