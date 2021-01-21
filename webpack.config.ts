@@ -1,4 +1,3 @@
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import {Configuration} from 'webpack';
@@ -21,21 +20,21 @@ const config: Configuration & any = {
           {
             loader: 'babel-loader', options: {
               presets: [
-                '@babel/preset-env',
-                '@babel/preset-react',
-                '@babel/preset-typescript'
-              ],
-              plugins: [
-                require.resolve('react-refresh/babel')
+                ['@babel/preset-env', {
+                  targets: {
+                    "ie": 11
+                  }
+                }],
+                '@babel/preset-react'
               ]
             }
-          }
+          },
+          'ts-loader'
         ]
       }]
   },
   plugins: [
-    new HtmlWebpackPlugin() as any,
-    new ReactRefreshWebpackPlugin(),
+    new HtmlWebpackPlugin() as any
   ]
 }
 
